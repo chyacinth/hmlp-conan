@@ -99,7 +99,7 @@ conan_basic_setup()''')
             'include/frame/primitives', 'include/frame/pvfmm'
             ]
         self.cpp_info.libdirs = ['/usr/local/lib', 'lib']
-        self.cpp_info.cppflags = ["-Xpreprocessor -fopenmp -lomp", "-std=c++11"]
+        #self.cpp_info.cppflags = ["-Xpreprocessor -fopenmp -lomp", "-std=c++11"]
         #self.cpp_info.libs = ["hmlp"]
-        print(self.settings.os)
+        #print(self.settings.os)
         #if self.settings.os=="Macos":
