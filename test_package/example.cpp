@@ -68,7 +68,8 @@ int main( int argc, char *argv[] )
     /** [Step#4] Perform the iterative neighbor search. */
     auto neighbors1 = gofmm::FindNeighbors( K1, rkdtsplitter1, config1 );
     /** Neighbors are stored as Data<pair<T,size_t>> in k-by-n. */
-    cout << "Number of neighboprs: " << neighbors1.row() << " number of queries: " << neighbors1.col() << endl;
+    cout << "Number of neighboprs: " << neighbors1.row() << " number of queries: " << neighbors1.col() 
+<< endl;
     /** Access entries using operator () with 2 indices. */
     neighbors1.Print();
     for ( int i = 0; i < std::min( k, (size_t)10 ); i ++ )
@@ -89,7 +90,8 @@ int main( int argc, char *argv[] )
     gofmm::randomsplit<KernelMatrix<T>, 2, T> rkdtsplitter2( K2 );
     /** [Step#4] Perform the iterative neighbor search. */
     auto neighbors2 = gofmm::FindNeighbors( K2, rkdtsplitter2, config2 );
-    cout << "Number of neighboprs: " << neighbors2.row() << " number of queries: " << neighbors2.col() << endl;
+    cout << "Number of neighboprs: " << neighbors2.row() << " number of queries: " << neighbors2.col() 
+<< endl;
     for ( int i = 0; i < std::min( k, (size_t)10 ); i ++ )
       printf( "[%E,%5lu]\n", neighbors2( i, 0 ).first, neighbors2( i, 0 ).second );
 

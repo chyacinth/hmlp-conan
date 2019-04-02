@@ -1,0 +1,31 @@
+{
+ "profile": "[settings]\narch=x86_64\narch_build=x86_64\nbuild_type=Release\ncompiler=icc\nos=Linux\nos_build=Linux\n[options]\nhmlp:tacc=True\n[build_requires]\n[env]\nCC=icc\nCXX=icpc",
+ "options": [
+  [
+   "blas",
+   "True"
+  ],
+  [
+   "cuda",
+   "False"
+  ],
+  [
+   "mpi",
+   "False"
+  ],
+  [
+   "shared",
+   "False"
+  ],
+  [
+   "tacc",
+   "True"
+  ]
+ ],
+ "root": {
+  "name": null,
+  "version": null,
+  "user": null,
+  "channel": null
+ }
+}

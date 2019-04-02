@@ -1,0 +1,38 @@
+[settings]
+    arch=x86_64
+    build_type=Release
+    compiler=icc
+    os=Linux
+
+[requires]
+
+
+[options]
+    blas=True
+    cuda=False
+    mpi=False
+    shared=False
+    tacc=True
+
+[full_settings]
+    arch=x86_64
+    build_type=Release
+    compiler=icc
+    os=Linux
+
+[full_requires]
+
+
+[full_options]
+    blas=True
+    cuda=False
+    mpi=False
+    shared=False
+    tacc=True
+
+[recipe_hash]
+
+
+[env]
+    CC=icc
+    CXX=icpc
