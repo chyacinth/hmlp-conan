@@ -97,7 +97,9 @@ conan_basic_setup()''')
             'include/gofmm', 'include/include', 'include/frame',
             'include/frame/base', 'include/frame/containers', 'include/frame/external',
             'include/frame/primitives', 'include/frame/pvfmm'
-            ]
+           ]
         self.cpp_info.libdirs = ['/usr/local/lib', 'lib']
         self.cpp_info.cppflags = ["-fopenmp", "-std=c++11", "-mkl"]
         self.cpp_info.libs = ["hmlp"]
+        self.env_info.CXX = ["icpc"]
+        self.env_info.C = ["icc"]
