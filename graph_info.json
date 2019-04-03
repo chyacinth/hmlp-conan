@@ -1,5 +1,5 @@
 {
- "profile": "[settings]\narch=x86_64\narch_build=x86_64\nbuild_type=Release\ncompiler=icc\nos=Linux\nos_build=Linux\n[options]\nhmlp:tacc=True\n[build_requires]\n[env]\nCC=icc\nCXX=icpc",
+ "profile": "[settings]\narch=x86_64\narch_build=x86_64\nbuild_type=Release\ncompiler=gcc\ncompiler.libcxx=libstdc++11\ncompiler.version=8.3\nos=Macos\nos_build=Macos\n[options]\n[build_requires]\n[env]\nCC=/usr/local/bin/gcc-8\nCXX=/usr/local/bin/g++-8\nOPENBLASROOT=/usr/local/Cellar/openblas/0.3.5",
  "options": [
   [
    "blas",
@@ -19,13 +19,13 @@
   ],
   [
    "tacc",
-   "True"
+   "False"
   ]
  ],
  "root": {
   "name": null,
   "version": null,
-  "user": null,
-  "channel": null
+  "user": "hyacinth",
+  "channel": "stable"
  }
 }
