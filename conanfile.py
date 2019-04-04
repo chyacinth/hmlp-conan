@@ -72,7 +72,10 @@ conan_basic_setup()''')
             self.run('source ' + script + ' && cmake "{}" {}'.format('hmlp', cmake.command_line) + ' && cmake --build .{}'.format(cmake.build_config) + ' && cmake --build . --target install')
 
         if (self.settings.os == "Linux"):
-            self.run('source ' + script + ' && cmake "{}" {}'.format('hmlp', cmake.command_line) + ' && cmake --build .{}'.format(cmake.build_config) + ' && cmake --build . --target install')
+            cmake.definitions["BUILD_UNIT_TESTS"] = False
+            cmake.definitions["BUILD_MOCK_TESTS"] = False
+            cmake.definitions["BUILD_BENCHMARKS"] = False
+            self.run('source ' + script + ' && echo OPENBLASROOT && echo $OPENBLASROOT && cmake "{}" {}'.format('hmlp', cmake.command_line) + ' && cmake --build .{}'.format(cmake.build_config) + ' && cmake --build . --target install')
 
         #cmake.configure(source_folder="hello")
         #cmake.build()
@@ -93,13 +96,18 @@ conan_basic_setup()''')
         self.copy("*.a", dst="lib", keep_path=False)
 
     def package_info(self):
-        self.cpp_info.includedirs=['/usr/local/include', 'include', 
+        self.cpp_info.includedirs=['include', 'include', 
             'include/gofmm', 'include/include', 'include/frame',
             'include/frame/base', 'include/frame/containers', 'include/frame/external',
             'include/frame/primitives', 'include/frame/pvfmm'
            ]
-        self.cpp_info.libdirs = ['/usr/local/lib', 'lib']
-        self.cpp_info.cppflags = ["-fopenmp", "-std=c++11", "-mkl"]
+        self.cpp_info.libdirs = ['lib']
+        if self.settings.compiler == 'icc':
+            self.cpp_info.cppflags = ["-lpthread", "-qopenmp", "-lm", "-mkl=parallel", "-std=c++11"]
+        else:
+            self.cpp_info.cppflags = ["-fopenmp", "-std=c++11", 
+            "-fprofile-arcs", "-ftest-coverage", "-lgcov",
+            "-lgcov", "--coverage"]
         self.cpp_info.libs = ["hmlp"]
-        self.env_info.CXX = ["icpc"]
-        self.env_info.C = ["icc"]
+        #self.env_info.CXX = ["icpc"]
+        #self.env_info.C = ["icc"]
