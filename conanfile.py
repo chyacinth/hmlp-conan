@@ -99,10 +99,7 @@ conan_basic_setup()''')
             'include/frame/primitives', 'include/frame/pvfmm'
            ]
         self.cpp_info.libdirs = ['/usr/local/lib', 'lib']
-
-        #if self.settings.os == "Macos":
-        #    self.cpp_info.cppflags = ["-fopenmp", "-std=c++11", "-lblas"]
-
+        
         if self.settings.compiler == "gcc":
             self.cpp_info.cppflags = ["-fopenmp", "-std=c++11"]
 
