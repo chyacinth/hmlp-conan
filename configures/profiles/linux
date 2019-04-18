@@ -6,7 +6,6 @@ arch_build=x86_64
 compiler=icc
 build_type=Release
 [options]
-hmlp:tacc=True
 [build_requires]
 [env]
 CC=icc
